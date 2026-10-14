@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NovaTech - Landing Page</title>
+
+  <!--
+    Tailwind CSS est déjà chargé via ce CDN.
+    Tu n'as RIEN à installer : il te suffit d'ajouter des classes
+    Tailwind (ex: class="text-xl font-bold") sur les balises ci-dessous.
+    Ne modifie pas cette ligne.
+  -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<!--
+  BODY
+  ----
+  C'est ici que commence ta page. Tu peux ajouter des classes de base
+  sur le <body> (couleur de fond par défaut, couleur de texte par défaut)
+  si tu le souhaites, mais ce n'est pas obligatoire.
+-->
+<body class="bg-white text-gray-900">
+
+  <!-- ============================================================
+       ÉTAPE 1 — CONTENEUR COMMUN
+       ============================================================
+       Dans TOUTES les sections de cette page, tu retrouveras un <div>
+       juste après la balise de section. Utilise TOUJOURS la même
+       classe de largeur maximale + centrage sur ce <div> (par exemple
+       une classe de type "largeur max + marges automatiques + petit
+       padding horizontal"), pour que toutes les sections soient
+       parfaitement alignées entre elles verticalement.
+  ============================================================= -->
+
+
+  <!-- ============================================================
+       ÉTAPE 2 — HEADER (en-tête)
+       ============================================================
+       Objectif : une barre en haut de page avec :
+         - le nom "NovaTech" à gauche (mets-le en évidence : couleur,
+           gras)
+         - une liste de liens de navigation (Accueil, Services,
+           Témoignages, À propos) qui ne doit être visible qu'à partir
+           des écrans moyens (pense à une classe qui masque sur mobile
+           et affiche en flex à partir de "md:")
+         - un bouton "Contact" à droite, bien visible (fond coloré,
+           texte blanc, coins arrondis)
+       Astuce de mise en page : utilise flexbox pour aligner le logo,
+       la navigation et le bouton sur une seule ligne, avec de l'espace
+       entre les trois.
+       N'oublie pas une légère ombre ou bordure en bas du header pour
+       le détacher du reste de la page.
+  ============================================================= -->
+  <header class="bg-white shadow-md fixed inset-x-0 top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+
+      <span class="font-bold text-xl text-blue-600">NovaTech</span>
+
+      <nav class="hidden md:flex items-center text-sm gap-8 font-medium text-gray-800">
+        <a href="#" class="hover:text-blue-600 transition-color" >Accueil</a>
+        <a href="#services" class="hover:text-blue-600 transition-color">Services</a>
+        <a href="#temoignages" class="hover:text-blue-600 transition-color">Témoignages</a>
+        <a href="#" class="hover:text-blue-600 transition-color">À propos</a>
+      </nav>
+
+      <a href="#contact" class="bg-blue-600 text-white rounded-lg py-2 px-4">Contact</a>
+
+    </div>
+  </header>
+
+
+  <!-- ============================================================
+       ÉTAPE 3 — HERO (section d'accroche) AVEC IMAGE DE FOND
+       ============================================================
+       Objectif : la section la plus impressionnante de la page.
+
+         1) La <section> doit avoir une image en fond plein écran.
+            Avec Tailwind, une image de fond se met via une classe
+            d'URL de fond + une classe qui fait "couvrir" tout
+            l'espace + une classe de centrage de l'image. Positionne
+            cette section en "relative" et cache tout dépassement.
+
+         2) Comme le texte sera écrit en blanc par-dessus l'image, tu
+            dois ajouter un voile sombre semi-transparent entre
+            l'image et le texte, sinon le texte sera illisible selon
+            la photo. Ce voile est un <div> qui recouvre exactement
+            la section (positionnement absolu, mêmes dimensions que
+            le parent), avec une couleur sombre à faible opacité.
+
+         3) Le contenu (titre, texte, boutons) doit être positionné
+            AU-DESSUS de l'image et du voile — pense à l'empilement
+            des couches (z-index / positionnement relatif).
+
+         4) Variante vidéo : si tu préfères une vidéo en fond plutôt
+            qu'une image fixe, remplace le <div> d'image par une
+            balise <video> en position absolue, avec les attributs
+            autoplay, muted, loop et playsinline (obligatoires pour
+            que la lecture démarre automatiquement dans le
+            navigateur), et une classe qui la fait remplir tout
+            l'espace sans se déformer.
+
+         - beaucoup de padding vertical (cette section doit "respirer")
+         - un grand titre blanc (le plus grand texte de toute la page),
+           centré, qui grandit encore sur les écrans larges
+         - un sous-titre plus discret mais toujours clair (pas gris
+           foncé, sinon illisible sur l'image), centré, avec une
+           largeur maximale pour ne pas être trop long sur desktop
+         - deux boutons côte à côte : un bouton "plein" (fond coloré)
+           et un bouton "contour blanc" (bordure blanche semi-
+           transparente, texte blanc), qui s'empilent verticalement
+           sur mobile et passent côte à côte à partir d'un certain
+           écran
+  ============================================================= -->
+  <section class="relative overflow-hidden min-h-screen flex items-center justify-center text-center text-white">
+
+    <!-- Étape 3.1 : image de fond en position absolue -->
+    <div>
+      <img src="https://www.marchnetworks.com/wp-content/uploads/2024/11/cloud-migration-hero-image-AdobeStock_478801437.webp" alt="Image de fond" class="absolute inset-0 w-full h-full object-cover"/>
+    </div>
+
+    <!-- Étape 3.2 : voile sombre semi-transparent par-dessus l'image -->
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+
+    <!-- Étape 3.3 : contenu, au-dessus des deux <div> précédents -->
+    <div class="relative z-10 pt-16">
+
+      <h1 class="text-4xl md:text-6xl font-bold mb-4">Des solutions digitales sur mesure</h1>
+
+      <p class="max-w-2xl mx-auto mb-8 text-lg opacity-90">
+        Nous accompagnons les entreprises dans leur transformation numérique,
+        du conseil stratégique au développement produit.
+      </p>
+
+      <div class="flex flex-col md:flex-row gap-4 items-center justify-center">
+        <a href="#contact" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">Démarrer maintenant</a>
+        <a href="#services" class="border border-white hover:bg-white hover:text-black text-white font-bold py-2 px-4 rounded">En savoir plus</a>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ÉTAPE 4 — SERVICES
+       ============================================================
+       Objectif :
+         - un titre de section centré ("Nos services")
+         - en dessous, une grille de 3 cartes qui passe à 1 seule
+           colonne sur mobile et 3 colonnes à partir des écrans
+           moyens (pense à une classe de grille responsive)
+         - chaque carte contient : un petit cercle coloré avec un
+           symbole au centre (à la place d'une vraie icône), un titre
+           et une courte description
+         - toutes les cartes doivent avoir le même style (fond, coins
+           arrondis, padding, texte centré)
+  ============================================================= -->
+  <section id="services">
+    <div class="container mx-auto px-4 py-16">
+
+      <h2 class="text-3xl font-bold text-center mb-12">Nos services</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+        <!-- Carte service 1 -->
+        <div class="bg-gray-100 rounded-lg p-6 text-center">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-500 text-lg font-bold">
+            &lt;/&gt;
+          </div>
+          <h3 class="text-xl font-bold mb-2">Développement web</h3>
+          <p>Des applications web robustes, performantes et sur mesure.</p>
+        </div>
+
+        <!-- Carte service 2 -->
+        <div class="bg-gray-100 rounded-lg p-6 text-center">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-500 text-lg font-bold">
+            ✎
+          </div>
+          <h3 class="text-xl font-bold mb-2">Design UI/UX</h3>
+          <p>Des interfaces claires, cohérentes et centrées utilisateur.</p>
+        </div>
+
+        <!-- Carte service 3 -->
+        <div class="bg-gray-100 rounded-lg p-6 text-center">
+          <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-500 text-lg font-bold">
+            ↗
+          </div>
+          <h3 class="text-xl font-bold mb-2">Conseil digital</h3>
+          <p>Un accompagnement stratégique pour réussir votre transformation.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ÉTAPE 5 — CHIFFRES CLÉS
+       ============================================================
+       Objectif : casser le rythme de la page avec un fond sombre
+       (ou très coloré), contenant 3 statistiques alignées côte à
+       côte (empilées sur mobile) :
+         - un grand nombre, en blanc, très visible
+         - un petit libellé en dessous, dans un gris clair, en
+           majuscules avec un léger espacement entre les lettres
+  ============================================================= -->
+  <section class="bg-gray-900 text-white py-16 my-16">
+    <div class="container mx-auto px-4 flex flex-col md:flex-row justify-around items-center gap-8">
+
+      <div class="text-center">
+        <p class="text-4xl font-bold">120+</p>
+        <p class="text-sm letter-spacing-1 uppercase text-gray-400">Projets livrés</p>
+      </div>
+
+      <div class="text-center">
+        <p class="text-4xl font-bold">50+</p>
+        <p class="text-sm letter-spacing-1 uppercase text-gray-400">Clients actifs</p>
+      </div>
+
+      <div class="text-center">
+        <p class="text-4xl font-bold">98%</p>
+        <p class="text-sm letter-spacing-1 uppercase text-gray-400">Satisfaction client</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ÉTAPE 6 — TÉMOIGNAGES (avec photo du client)
+       ============================================================
+       Objectif :
+         - un titre de section centré
+         - une grille de 2 cartes (1 colonne sur mobile, 2 colonnes
+           à partir des écrans moyens)
+         - chaque carte contient, en haut, une ligne avec une petite
+           photo circulaire du client à gauche, et à droite son nom
+           (en gras) au-dessus de sa fonction (en gris, plus petit)
+         - en dessous de cette ligne, la citation du client en
+           italique
+       Astuce : pour l'image, utilise une URL d'avatar de test comme
+       https://i.pravatar.cc/100?img=32 (change juste le numéro pour
+       une photo différente), rendue circulaire comme l'avatar de
+       l'exercice "carte de profil".
+       Astuce mise en page : réutilise le même style de carte que
+       dans la section Services, et utilise flexbox pour aligner la
+       photo et le bloc nom/fonction sur une seule ligne.
+  ============================================================= -->
+  <section id="temoignages">
+    <div class="container mx-auto px-4 py-14">
+
+      <h2 class="text-3xl font-bold text-center mb-16">Ce que disent nos clients</h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-4">
+
+        <div class="bg-gray-100 rounded-lg p-6">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://i.pravatar.cc/100?img=32" alt="Photo de Awa Diop" class="rounded-full" />
+            <div class="flex flex-col">
+              <p class="font-bold">Awa Diop</p>
+              <p class="text-gray-500 text-sm">Directrice produit, Kalima</p>
+            </div>
+          </div>
+          <p class="italic text-base">« NovaTech a transformé notre plateforme en quelques semaines, avec un vrai souci du détail. »</p>
+        </div>
+
+        <div class="bg-gray-100 rounded-lg p-6">
+          <div class="flex items-center gap-4 mb-4">
+            <img src="https://i.pravatar.cc/100?img=51" alt="Photo de Moussa Fall" class="rounded-full" />
+            <div class="flex flex-col">
+              <p class="font-bold">Moussa Fall</p>
+              <p class="text-gray-500 text-sm">CEO, Teranga Tech</p>
+            </div>
+          </div>
+          <p class="italic text-base">« Une équipe réactive, à l'écoute, et des livrables toujours de grande qualité. »</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ÉTAPE 7 — CTA FINAL (appel à l'action)
+       ============================================================
+       Objectif : la section la plus contrastée de toute la page.
+         - fond coloré plein (ex: bleu vif)
+         - un titre court et incitatif, en blanc
+         - un petit texte de complément, dans une teinte plus claire
+           de la même couleur
+         - un bouton qui inverse les couleurs du bouton du header
+           (fond blanc, texte coloré) pour bien ressortir sur le fond
+           coloré
+  ============================================================= -->
+  <section id="contact" class="bg-blue-600">
+    <div class="max-w-6xl mx-auto px-4 py-16 text-center">
+
+      <h2 class="text-3xl font-bold mb-2 text-white">Prêt à lancer votre projet ?</h2>
+      <p class="text-blue-100 text-base mt-2">Discutons de vos besoins et construisons ensemble votre prochaine solution digitale.</p>
+      <a href="#" class="inline-block mt-6 bg-white text-blue-600 hover:bg-gray-200 font-bold py-2 px-6 rounded">Contactez-nous</a>
+
+    </div>
+  </section>
+
+
+  <!-- ============================================================
+       ÉTAPE 8 — FOOTER (pied de page)
+       ============================================================
+       Objectif : fond sombre, avec :
+         - une grille de colonnes : 2 colonnes sur mobile, 4 colonnes
+           à partir des écrans moyens
+         - la première colonne (logo + description) doit occuper
+           toute la largeur sur mobile, puis une seule colonne sur
+           desktop
+         - les 3 autres colonnes sont des listes de liens avec un
+           titre de colonne en blanc et des liens en gris (qui
+           passent au blanc au survol)
+         - tout en bas, une fine ligne de séparation puis une phrase
+           de copyright centrée
+  ============================================================= -->
+  <footer class="bg-gray-900 text-gray-400 py-8">
+    <div class="container mx-auto px-12 grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+
+      <div class="col-span-2 md:col-span-1">
+        <span class="text-white font-bold text-xl">NovaTech</span>
+        <p>Solutions digitales sur mesure pour entreprises ambitieuses.</p>
+      </div>
+
+      <div>
+        <h4 class="text-white">Produit</h4>
+        <ul>
+          <li><a href="#" class="hover:text-white">Services</a></li>
+          <li><a href="#" class="hover:text-white">Tarifs</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white">Entreprise</h4>
+        <ul>
+          <li><a href="#" class="hover:text-white">À propos</a></li>
+          <li><a href="#" class="hover:text-white">Carrières</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-white">Ressources</h4>
+        <ul>
+          <li><a href="#" class="hover:text-white">Blog</a></li>
+          <li><a href="#" class="hover:text-white">Support</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="border-t border-gray-700 text-center text-sm">
+      <p class="pt-4">© 2026 NovaTech. Tous droits réservés.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
